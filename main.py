@@ -8,10 +8,19 @@ outerShell=Tk()
 #------------------------------------------------------------------------------------------------------
 # in this section we are going to use the grid system instead of just packing 
 
+
+
+def dothemath ():
+	productResult = num1.get() * num2.get()
+	print (productResult)
+	productLabel = Label(outerShell, text = productResult)
+	productLabel.grid(row=3, column=3)
+	return productResult
+
 label_1 = Label(outerShell, text = "Enter first number")
 label_2 = Label(outerShell, text = "Enter second number")
 label_submit = Label(outerShell, text = "Click submit for results")
-submit_button = Button(outerShell, text = "Submit")
+submit_button = Button(outerShell, text = "Submit", command=dothemath)
 label_results = Label(outerShell, text = "The product of your two numbers is:")
 
 label_1.grid(row=0, column = 0)
@@ -20,10 +29,17 @@ label_submit.grid(row=2, column = 0)
 submit_button.grid(row=2, column =1)
 label_results.grid(row=3, column = 0)
 
-textinput1 = Entry(outerShell)
-textinput2 = Entry(outerShell)
+num1 = IntVar()
+num2 = IntVar()
+
+textinput1 = Entry(outerShell, textvariable=num1)
+textinput2 = Entry(outerShell, textvariable=num2)
 textinput1.grid(row = 0, column = 1)
 textinput2.grid(row = 1, column = 1)
+
+
+	
+	
 
 #------------------------------------------------------------------------------------------------------
 
