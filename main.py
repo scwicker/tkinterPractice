@@ -9,12 +9,13 @@ outerShell=Tk()
 # in this section we are going to use the grid system instead of just packing 
 
 
-
+productResult = 0
 def dothemath ():
+	global productResult
 	productResult = num1.get() * num2.get()
 	print (productResult)
-	productLabel = Label(outerShell, text = productResult)
-	productLabel.grid(row=3, column=3)
+	productLabel.config(text = productResult)
+
 	return productResult
 
 def clearField(tInput):
@@ -30,6 +31,7 @@ textinput2 = Entry(outerShell, textvariable=num2)
 label_1 = Label(outerShell, text = "Enter first number")
 label_2 = Label(outerShell, text = "Enter second number")
 label_submit = Label(outerShell, text = "Click submit for results")
+#when button is clicked, dothemath function is ran. 
 submit_button = Button(outerShell, text = "Submit", command=dothemath)
 clear1_button = Button(outerShell, text = "Clear", command= lambda: clearField(textinput1))
 clear2_button = Button(outerShell, text = "Clear", command= lambda: clearField(textinput2))
@@ -46,6 +48,11 @@ textinput1.grid(row = 0, column = 1)
 textinput2.grid(row = 1, column = 1)
 clear1_button.grid(row = 0, column =2)
 clear2_button.grid(row = 1, column =2)
+
+#need this to fill based on dothemath function
+productLabel = Label(outerShell, text = productResult)
+productLabel.grid(row=3, column=2)
+
 
 
 
