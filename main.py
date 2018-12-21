@@ -5,11 +5,11 @@ from tkinter import *
 outerShell=Tk()
 
 #labels put text into a tkinter window. First param is which window. second param text
-labelVar = Label(root, text="This is too easy")
+labelVar = Label(outerShell, text="This is just some text")
 
 #this is where we can tell tkinter to position window
-theLabel.pack()
+labelVar.pack()
 
 
 #must loop or else screen will just flash window and disappear 
-root.mainloop()
+outerShell.mainloop()
