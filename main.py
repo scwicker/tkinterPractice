@@ -4,28 +4,30 @@ from tkinter import *
 #create a tkinter object which will be outer shell window 
 outerShell=Tk()
 
-#create two frames for now 
-topFrame = Frame(outerShell)
-topFrame.pack()
-bottomFrame = Frame(outerShell)
-bottomFrame.pack()
 
-#add some buttons to the frames #when not in mac, can add button colors with 3rd param 
-#first param is which frame, second is text
-button1 = Button(topFrame, text="button 1")
-button2 = Button(topFrame, text="button 2")
-button3 = Button(bottomFrame, text="button 3")
-button4 = Button(bottomFrame, text="button 4")
+#------------------------------------------------------------------------------------------------------
+# in this section we are going to use the grid system instead of just packing 
 
-#labels put text into a tkinter window. First param is which window. second param text
-labelVar = Label(outerShell, text="This is just some text in outerShell")
+label_1 = Label(outerShell, text = "Enter first number")
+label_2 = Label(outerShell, text = "Enter second number")
+label_submit = Label(outerShell, text = "Click submit for results")
+submit_button = Button(outerShell, text = "Submit")
+label_results = Label(outerShell, text = "The product of your two numbers is:")
 
-#this is where we can tell tkinter to position window
-labelVar.pack()
-button2.pack(side=LEFT)
-button1.pack(side=LEFT)
-button3.pack(side=LEFT)
-button4.pack(side=LEFT)
+label_1.grid(row=0, column = 0)
+label_2.grid(row=1, column = 0)
+label_submit.grid(row=2, column = 0)
+submit_button.grid(row=2, column =1)
+label_results.grid(row=3, column = 0)
+
+textinput1 = Entry(outerShell)
+textinput2 = Entry(outerShell)
+textinput1.grid(row = 0, column = 1)
+textinput2.grid(row = 1, column = 1)
+
+#------------------------------------------------------------------------------------------------------
+
+
 
 
 #must loop or else screen will just flash window and disappear 
